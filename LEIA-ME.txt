@@ -1,0 +1,23 @@
+# Fênix Vamphyra — versão instalável para Android
+
+Este pacote prepara o HTML fornecido como um Progressive Web App (PWA).
+
+## O que foi preparado
+- `index.html`: seu aplicativo original, com metadados PWA e registro do service worker.
+- `manifest.webmanifest`: nome, ícones e configuração de instalação.
+- `sw.js`: cache do app shell para permitir reabertura offline depois da primeira visita.
+- `icons/`: ícones 192×192 e 512×512.
+
+## Como testar no Android
+1. Publique **todos** os arquivos desta pasta em um site com HTTPS (por exemplo, GitHub Pages, Netlify ou outro host HTTPS).
+2. Abra o endereço publicado no Chrome do Android.
+3. Abra o menu ⋮ do Chrome e escolha **Instalar app** ou **Adicionar à tela inicial** (o texto varia conforme a versão).
+4. Abra pelo novo ícone. Faça um primeiro carregamento com internet para que o cache seja criado.
+
+Abrir o HTML diretamente como arquivo local não habilita todos os recursos de PWA. Service workers e instalação exigem um contexto seguro, normalmente HTTPS ou localhost.
+
+## Para colocar na Google Play Store
+Este pacote **não é ainda um APK/AAB e não foi publicado na Play Store**. Depois de hospedar o PWA em HTTPS, uma opção é usar PWABuilder para preparar um pacote Android e seguir a publicação no Google Play Console. A publicação depende de conta de desenvolvedor, formulários, políticas, assinatura e revisão do Google.
+
+## Limites do modo offline
+O cache guarda o HTML e os recursos locais que o navegador conseguir armazenar. Recursos externos, como fontes ou serviços remotos, podem continuar exigindo internet. Dados do app só ficam disponíveis offline se forem armazenados localmente pela própria aplicação.
